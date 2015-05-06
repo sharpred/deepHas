@@ -20,7 +20,8 @@ function hasProperty(target, path) {
     if ( typeof target !== "object") {
         return;
     }
-    if (deepProperty(target, path)) {
+    var test = deepProperty(target, path);
+    if (typeof test !== "undefined") {
         return true;
     }
     return false;

@@ -25,14 +25,19 @@ var test1,
     test8,
     test9,
     test10,
+    test11,
+    test12,
     hasObj;
 
 hasObj = {
     "top" : {
         "middle" : {
-            "bottom" : {}
+            "bottom" : {
+            }
         }
-    }
+    },
+    "truthy" : true,
+    "falsey" : false
 };
 //data
 test1 = dh.hasProperty(hasObj, "top");
@@ -44,7 +49,9 @@ test6 = dh.hasProperty(hasObj, "bottom.middle.top");
 test7 = dh.hasProperty();
 test8 = dh.hasProperty(hasObj);
 test9 = dh.hasProperty("top");
-test10 = dh.hasProperty({},"top");
+test10 = dh.hasProperty({}, "top");
+test11 = dh.hasProperty(hasObj, "truthy");
+test12 = dh.hasProperty(hasObj, "falsey");
 
 //assertions
 test1.should.be.exactly(true);
@@ -57,4 +64,6 @@ should.not.exist(test7);
 should.not.exist(test8);
 should.not.exist(test9);
 test10.should.be.exactly(false);
+test11.should.be.exactly(true);
+test12.should.be.exactly(true);
 
