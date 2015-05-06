@@ -2,7 +2,7 @@
   "name": "deepHas",
   "version": "1.0.0",
   "description": "test for existence of nested object key and optionally return that key",
-  "main": "index.js",
+  "main": "deepHas.js",
   "scripts": {
     "test": "npm test"
   },
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/sharpred/deepHas/issues"
   },
-  "homepage": "https://github.com/sharpred/deepHas"
+  "homepage": "https://github.com/sharpred/deepHas",
+  "devDependencies": {
+    "should": "^6.0.1"
+  }
 }
