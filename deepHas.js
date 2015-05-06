@@ -21,7 +21,7 @@ function hasProperty(target, path) {
         return;
     }
     var test = deepProperty(target, path);
-    if (typeof test !== "undefined") {
+    if ( typeof test !== "undefined") {
         return true;
     }
     return false;
@@ -29,6 +29,12 @@ function hasProperty(target, path) {
 
 function getProperty(target, path) {
     "use strict";
+    if ( typeof path !== "string") {
+        return;
+    }
+    if ( typeof target !== "object") {
+        return;
+    }
     var test = deepProperty(target, path);
     return test;
 }
