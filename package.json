@@ -1,0 +1,24 @@
+{
+  "name": "deepHas",
+  "version": "1.0.0",
+  "description": "test for existence of nested object key and optionally return that key",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sharpred/deepHas.git"
+  },
+  "keywords": [
+    "nested",
+    "object",
+    "key"
+  ],
+  "author": "Paul Ryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharpred/deepHas/issues"
+  },
+  "homepage": "https://github.com/sharpred/deepHas"
+}
