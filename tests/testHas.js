@@ -1,4 +1,4 @@
-var dh = require("./deepHas"),
+var dh = require("../deepHas"),
     should = require("should");
 
 /*

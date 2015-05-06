@@ -4,7 +4,7 @@
   "description": "test for existence of nested object key and optionally return that key",
   "main": "deepHas.js",
   "scripts": {
-    "test": "npm test"
+    "test": "./runTests.sh"
   },
   "repository": {
     "type": "git",
