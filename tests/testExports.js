@@ -6,8 +6,8 @@ var dh = require("../deepHas"),
  * public functions should be visible (hasProperty and getProperty)
  * private function should be hidden(deepProperty)
  */
-dh.should.be.an.instanceOf(Object).and.have.property('hasProperty');
-dh.should.have.property('getProperty');
-dh.should.be.an.instanceOf(Object).and.not.have.property('deepProperty');
-dh.hasProperty.should.be.an.instanceOf(Function);
-dh.getProperty.should.be.an.instanceOf(Function);
+dh.should.be.an.instanceOf(Object).and.have.property('has');
+dh.should.have.property('get');
+dh.should.be.an.instanceOf(Object).and.not.have.property('deep');
+dh.has.should.be.an.instanceOf(Function);
+dh.get.should.be.an.instanceOf(Function);

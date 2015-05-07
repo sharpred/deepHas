@@ -2,7 +2,7 @@ var dh = require("../deepHas"),
     should = require("should");
 
 /*
- * Test getProperty
+ * Test get
  */
 var test1,
     test2,
@@ -29,18 +29,18 @@ getObj = {
     "falsey" : false
 };
 //data
-test1 = dh.getProperty(getObj, "top");
-test2 = dh.getProperty(getObj, "top.middle");
-test3 = dh.getProperty(getObj, "top.middle.bottom");
-test4 = dh.getProperty(getObj, "bottom");
-test5 = dh.getProperty(getObj, "bottom.middle");
-test6 = dh.getProperty(getObj, "bottom.middle.top");
-test7 = dh.getProperty();
-test8 = dh.getProperty(getObj);
-test9 = dh.getProperty("top");
-test10 = dh.getProperty({}, "top");
-test11 = dh.getProperty(getObj, "truthy");
-test12 = dh.getProperty(getObj, "falsey");
+test1 = dh.get(getObj, "top");
+test2 = dh.get(getObj, "top.middle");
+test3 = dh.get(getObj, "top.middle.bottom");
+test4 = dh.get(getObj, "bottom");
+test5 = dh.get(getObj, "bottom.middle");
+test6 = dh.get(getObj, "bottom.middle.top");
+test7 = dh.get();
+test8 = dh.get(getObj);
+test9 = dh.get("top");
+test10 = dh.get({}, "top");
+test11 = dh.get(getObj, "truthy");
+test12 = dh.get(getObj, "falsey");
 
 //assertions
 should(test1).have.property("middle", {

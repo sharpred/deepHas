@@ -2,7 +2,7 @@ var dh = require("../deepHas"),
     should = require("should");
 
 /*
- * Test hasProperty
+ * Test has
  */
 var test1,
     test2,
@@ -29,18 +29,18 @@ hasObj = {
     "falsey" : false
 };
 //data
-test1 = dh.hasProperty(hasObj, "top");
-test2 = dh.hasProperty(hasObj, "top.middle");
-test3 = dh.hasProperty(hasObj, "top.middle.bottom");
-test4 = dh.hasProperty(hasObj, "bottom");
-test5 = dh.hasProperty(hasObj, "bottom.middle");
-test6 = dh.hasProperty(hasObj, "bottom.middle.top");
-test7 = dh.hasProperty();
-test8 = dh.hasProperty(hasObj);
-test9 = dh.hasProperty("top");
-test10 = dh.hasProperty({}, "top");
-test11 = dh.hasProperty(hasObj, "truthy");
-test12 = dh.hasProperty(hasObj, "falsey");
+test1 = dh.has(hasObj, "top");
+test2 = dh.has(hasObj, "top.middle");
+test3 = dh.has(hasObj, "top.middle.bottom");
+test4 = dh.has(hasObj, "bottom");
+test5 = dh.has(hasObj, "bottom.middle");
+test6 = dh.has(hasObj, "bottom.middle.top");
+test7 = dh.has();
+test8 = dh.has(hasObj);
+test9 = dh.has("top");
+test10 = dh.has({}, "top");
+test11 = dh.has(hasObj, "truthy");
+test12 = dh.has(hasObj, "falsey");
 
 //assertions
 test1.should.be.exactly(true);
@@ -49,9 +49,9 @@ test3.should.be.exactly(true);
 test4.should.be.exactly(false);
 test5.should.be.exactly(false);
 test6.should.be.exactly(false);
-should.not.exist(test7);
-should.not.exist(test8);
-should.not.exist(test9);
+test7.should.be.exactly(false);
+test8.should.be.exactly(false);
+test9.should.be.exactly(false);
 test10.should.be.exactly(false);
 test11.should.be.exactly(true);
 test12.should.be.exactly(true);
