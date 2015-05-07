@@ -1,9 +1,18 @@
 function deepProperty(obj, str) {
     "use strict";
+    if ( typeof str !== "string") {
+        return;
+    }
+    if ( typeof obj !== "object") {
+        return;
+    }
     function index(obj, i) {
         "use strict";
         try {
-            return obj[i];
+            if (obj.hasOwnProperty(i)) {
+                return obj[i];
+            }
+            return;
         } catch(ex) {
             return;
         }
