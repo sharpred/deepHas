@@ -9,7 +9,7 @@ or just drop deepHas.js into your project.
 
 ##Usage
 
-`dh = require("deepHas")`
+`dh = require("deepHas");\n`
 `var obj = {"some": {"nested": {"property":""your value here"}}};`
 
 ### dh.has(obj, 'some.nested.property')
