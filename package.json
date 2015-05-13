@@ -1,6 +1,6 @@
 {
   "name": "deephas",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "test for existence of nested object key and optionally return that key",
   "main": "deepHas.js",
   "scripts": {

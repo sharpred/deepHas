@@ -1,4 +1,4 @@
-function recurse(obj, str) {
+function reduceObject(obj, str) {
     return function(func) {
         "use strict";
         if ( typeof str !== "string") {
@@ -22,32 +22,47 @@ function index(obj, i) {
     }
 }
 
+function update(obj, i) {
+    try {
+        if (obj.hasOwnProperty(i)) {
+            return obj[i];
+        } else {
+            obj[i] = {};
+        }
+        return i;
+    } catch(ex) {
+        return;
+    }
+}
+
 function has(target, path) {
-    var deep = recurse(target, path),
-        test = deep(index);
-    if ( typeof test !== "undefined") {
+    var func = reduceObject(target, path),
+        deep = func(index);
+    if ( typeof deep !== "undefined") {
         return true;
     }
     return false;
 }
 
 function get(target, path) {
-    var deep = recurse(target, path),
-        test = deep(index);
-    return test;
+    var func = reduceObject(target, path),
+        deep = func(index);
+    return deep;
 }
 
 function set(target, path, value) {
-    var deep = recurse(target, path),
-        test = deep(index);
-    if (!target || !path || !value) {
+    var func,
+        deep;
+    if (target && path) {
+        func = reduceObject(target, path);
+        deep = func(update);
+        console.log(JSON.stringify(target));
+        if (deep) {
+            return true;
+        }
         return false;
     }
-    if (test) {
-        return true;
-    } else {
-
-    }
+    return false;
 }
 
 exports.has = has;

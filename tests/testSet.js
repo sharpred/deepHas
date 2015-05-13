@@ -17,47 +17,39 @@ var test1,
     test11,
     test12,
     test13,
-    getObj;
+    obj;
 
-getObj = {
-    "top" : {
-        "middle" : {
-            "bottom" : {
-            }
-        }
-    },
-    "truthy" : true,
-    "falsey" : false
-};
+obj = {};
 //data
-/*
-test1 = dh.set(getObj, "top", "middle");
-test2 = dh.set(getObj, "top.middle", "bottom");
-test3 = dh.set(getObj, "top.middle.bottom", "new");
-test4 = dh.get(getObj, "top.middle.bottom.new");
-test5 = dh.set(getObj, "bottom");
-test6 = dh.set(getObj, "bottom.middle");
-test7 = dh.set(getObj, "bottom.middle.top");
+
+test1 = dh.set(obj, "top", {});
+test2 = dh.set(obj, "top.middle", "bottom");
+test3 = dh.set(obj, "top.middle.bottom", "new");
+test4 = dh.get(obj, "top.middle.bottom");
+test5 = dh.set(obj, "bottom", "middle");
+test6 = dh.set(obj, "bottom.middle", "top");
+test7 = dh.set(obj, "bottom.middle.top", "new");
 test8 = dh.set();
-test9 = dh.set(getObj);
+test9 = dh.set(obj);
 test10 = dh.set("top");
 test11 = dh.set({}, "top");
-test12 = dh.set(getObj, "truthy");
-test13 = dh.set(getObj, "falsey");*/
-
-
-//assertions
+test12 = dh.set(obj, "truthy", true);
+test13 = dh.set(obj, "falsey", false);
 /*
-test1.should.be.exactly(true);
-test2.should.be.exactly(true);
-test3.should.be.exactly(true);
-test4.should.be.exactly("new");
-test5.should.be.exactly(true);
-test6.should.be.exactly(true);
-test7.should.be.exactly(false);
-test8.should.be.exactly(false);
-test9.should.be.exactly(false);
-test10.should.be.exactly(true);
-test11.should.be.exactly(true);
-test12.should.be.exactly(true);
-*/
+
+ //assertions
+
+ test1.should.be.exactly(true);
+ test2.should.be.exactly(true);
+ /*
+ test3.should.be.exactly(true);
+ test4.should.be.exactly("new");
+ test5.should.be.exactly(true);
+ test6.should.be.exactly(true);
+ test7.should.be.exactly(false);
+ test8.should.be.exactly(false);
+ test9.should.be.exactly(false);
+ test10.should.be.exactly(true);
+ test11.should.be.exactly(true);
+ test12.should.be.exactly(true);
+ */
