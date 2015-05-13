@@ -1,56 +1,71 @@
-function reduceObject(obj, str) {
-    return function(func) {
-        "use strict";
-        if ( typeof str !== "string") {
-            return;
-        }
-        if ( typeof obj !== "object") {
-            return;
-        }
-        return str.split('.').reduce(func, obj);
-    };
-}
+var _ = require("underscore"),
+    get,
+    set,
+    has,
+    index,
+    update,
+    reduceObject;
 
-function index(obj, i) {
+reduceObject = function(arg1, arg2) {
+    "use strict";
+    var arr;
+    if (!_.isObject(arg1)) {
+        console.log("not an object " + arg1);
+        return;
+    }
+    if (_.isString(arg2)) {
+        arr = arg2.split(".");
+    } else if (_.isArray(arg2)) {
+        arr = arg2;
+    }
+    return function(func) {
+        return arr.reduce(func, arg1);
+    };
+};
+index = function(arg1, i) {
     try {
-        if (obj.hasOwnProperty(i)) {
-            return obj[i];
+        if (arg1.hasOwnProperty(i)) {
+            return arg1[i];
         }
         return;
     } catch(ex) {
         return;
     }
-}
-
-function update(obj, i) {
+};
+update = function(arg1, i) {
     try {
-        if (obj.hasOwnProperty(i)) {
-            return obj[i];
+        if (arg1.hasOwnProperty(i)) {
+            return arg1[i];
         } else {
-            obj[i] = {};
+            arg1[i] = {};
         }
         return i;
     } catch(ex) {
         return;
     }
-}
-
-function has(target, path) {
-    var func = reduceObject(target, path),
-        deep = func(index);
-    if ( typeof deep !== "undefined") {
+};
+has = function(target, path) {
+    var test;
+    if (target && path) {
+        test = get(target, path);
+        if (_.isUndefined(test)) {
+            return false;
+        }
         return true;
     }
     return false;
-}
-
-function get(target, path) {
-    var func = reduceObject(target, path),
+};
+get = function(target, path) {
+    var func,
+        deep;
+    if (target && path) {
+        func = reduceObject(target, path);
         deep = func(index);
-    return deep;
-}
-
-function set(target, path, value) {
+        return deep;
+    }
+    return;
+};
+set = function(target, path, value) {
     var func,
         deep;
     if (target && path) {
@@ -63,7 +78,7 @@ function set(target, path, value) {
         return false;
     }
     return false;
-}
+};
 
 exports.has = has;
 exports.get = get;
