@@ -1,3 +1,4 @@
+var _ = require("underscore");
 function reduce(obj, str) {
     "use strict";
     if ( typeof str !== "string") {

@@ -1,6 +1,5 @@
 var dh = require("../deepHas"),
-    should = require("should"),
-    _ = require("underscore");
+    should = require("should");
 
 /*
  * Test has
@@ -57,4 +56,4 @@ test9.should.be.exactly(false);
 test10.should.be.exactly(false);
 test11.should.be.exactly(true);
 test12.should.be.exactly(true);
-test13.should.be.exactly(true);
+test13.should.be.exactly(false);
