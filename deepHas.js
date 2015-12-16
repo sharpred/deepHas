@@ -1,4 +1,4 @@
-function deep(obj, str) {
+function reduce(obj, str) {
     "use strict";
     if ( typeof str !== "string") {
         return;
@@ -8,11 +8,14 @@ function deep(obj, str) {
     }
     function index(obj, i) {
         try {
-            if (obj.hasOwnProperty(i)) {
+            console.log("obj: " + JSON.stringify(obj)+ " i: " + i);
+
+            if (obj && obj.hasOwnProperty(i)) {
                 return obj[i];
             }
             return;
         } catch(ex) {
+            console.error(ex);
             return;
         }
     }
@@ -21,7 +24,7 @@ function deep(obj, str) {
 }
 
 function has(target, path) {
-    var test = deep(target, path);
+    var test = reduce(target, path);
     if ( typeof test !== "undefined") {
         return true;
     }
@@ -29,8 +32,13 @@ function has(target, path) {
 }
 
 function get(target, path) {
-    return deep(target, path);
+    return reduce(target, path);
+}
+
+function set(target, path, val) {
+    var obj = reduce(target, path);
 }
 
 exports.has = has;
 exports.get = get;
+exports.set = set;
