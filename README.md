@@ -1,3 +1,4 @@
+![Build Status](https://travis-ci.org/sharpred/deepHas.svg?branch=master)
 # deepHas
 
 test for existence of nested object key and optionally return that key
@@ -16,6 +17,6 @@ or just drop deepHas.js into your project.
 
 Returns true or false if 'some.nested.property' exists or not. In the above example returns true.
 
-### dh.get(obj, 'some.nested.property') 
+### dh.get(obj, 'some.nested.property')
 
 Returns the value or undefined if it does not exist.  In the above example returns "your value here"
