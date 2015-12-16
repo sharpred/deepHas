@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/sharpred/deepHas",
   "devDependencies": {
-    "should": "*"
+    "should": ">=8.0.1"
   }
 }
