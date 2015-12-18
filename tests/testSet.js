@@ -6,7 +6,7 @@ obj = {
     "top" : {
         "middle" : {
             "bottom" : {
-                "val" : "wibble"
+                "val" : "1"
             }
         }
     },
@@ -15,7 +15,7 @@ obj = {
 };
 
 dh.set(obj, "top.middle.bottom", {
-    "val" : "wobble"
+    "val" : "2"
 });
 
 //assertions
@@ -23,7 +23,7 @@ JSON.stringify(obj).should.equal(JSON.stringify({
     "top" : {
         "middle" : {
             "bottom" : {
-                "val" : "wobble"
+                "val" : "2"
             }
         }
     },
@@ -32,17 +32,17 @@ JSON.stringify(obj).should.equal(JSON.stringify({
 }));
 
 dh.set(obj, "top.middle.left", {
-    "val" : "wibble"
+    "val" : "1"
 });
 
 JSON.stringify(obj).should.equal(JSON.stringify({
     "top" : {
         "middle" : {
             "bottom" : {
-                "val" : "wobble"
+                "val" : "2"
             },
             "left" : {
-                "val" : "wibble"
+                "val" : "1"
             }
         }
     },
@@ -51,20 +51,20 @@ JSON.stringify(obj).should.equal(JSON.stringify({
 }));
 
 dh.set(obj, "top.middle.right", {
-    "val" : "wibble"
+    "val" : "1"
 });
 
 JSON.stringify(obj).should.equal(JSON.stringify({
     "top" : {
         "middle" : {
             "bottom" : {
-                "val" : "wobble"
+                "val" : "2"
             },
             "left" : {
-                "val" : "wibble"
+                "val" : "1"
             },
             "right" : {
-                "val" : "wibble"
+                "val" : "1"
             }
         }
     },
@@ -73,28 +73,60 @@ JSON.stringify(obj).should.equal(JSON.stringify({
 }));
 
 dh.set(obj, "top.bottom.right", {
-    "val" : "wibble"
+    "val" : "1"
 });
 
 JSON.stringify(obj).should.equal(JSON.stringify({
     "top" : {
         "middle" : {
             "bottom" : {
-                "val" : "wobble"
+                "val" : "2"
             },
             "left" : {
-                "val" : "wibble"
+                "val" : "1"
             },
             "right" : {
-                "val" : "wibble"
+                "val" : "1"
             }
         },
         "bottom" : {
             "right" : {
-                "val" : "wibble"
+                "val" : "1"
             }
         }
     },
     "truthy" : true,
     "falsey" : false
+}));
+
+dh.set(obj, "bottom.middle.top", {
+    "val" : "1"
+});
+
+JSON.stringify(obj).should.equal(JSON.stringify({
+    "top" : {
+        "middle" : {
+            "bottom" : {
+                "val" : "2"
+            },
+            "left" : {
+                "val" : "1"
+            },
+            "right" : {
+                "val" : "1"
+            }
+        },
+        "bottom" : {
+            "right" : {
+                "val" : "1"
+            }
+        }
+    },
+    "truthy" : true,
+    "falsey" : false,
+    "bottom" : {
+        "middle" : {
+            "top" : {"val": "1"}
+        }
+    }
 }));
