@@ -1,6 +1,8 @@
 var dh = require("../deepHas"),
     should = require("should"),
-    obj;
+    obj,
+    obj2,
+    test2;
 
 obj = {
     "top" : {
