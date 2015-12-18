@@ -1,4 +1,23 @@
-var _ = require("underscore");
+var _ = require("underscore"),
+    index,
+    reduce,
+    add,
+    has,
+    get,
+    set;
+
+function index(obj, i) {
+    try {
+        if (obj && obj.hasOwnProperty(i)) {
+            return obj[i];
+        }
+        return;
+    } catch(ex) {
+        console.error(ex);
+        return;
+    }
+}
+
 function reduce(obj, str) {
     "use strict";
     if ( typeof str !== "string") {
@@ -7,21 +26,15 @@ function reduce(obj, str) {
     if ( typeof obj !== "object") {
         return;
     }
-    function index(obj, i) {
-        try {
-            console.log("obj: " + JSON.stringify(obj)+ " i: " + i);
-
-            if (obj && obj.hasOwnProperty(i)) {
-                return obj[i];
-            }
-            return;
-        } catch(ex) {
-            console.error(ex);
-            return;
-        }
-    }
-
     return str.split('.').reduce(index, obj);
+}
+
+function add(obj, str, val) {
+    var items = str.split('.');
+    var initial = _.initial(items);
+    var last = _.last(items);
+    var test = initial.reduce(index, obj);
+    test[last] = val;
 }
 
 function has(target, path) {
@@ -37,7 +50,7 @@ function get(target, path) {
 }
 
 function set(target, path, val) {
-    var obj = reduce(target, path);
+    return add(target, path, val);
 }
 
 exports.has = has;
