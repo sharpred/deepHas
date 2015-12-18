@@ -18,6 +18,21 @@ function index(obj, i) {
     }
 }
 
+function indexSet(obj, i) {
+    try {
+        if (obj && obj.hasOwnProperty(i)) {
+            return obj[i];
+        } else {
+            obj[i] = {};
+            return obj[i];
+        }
+        return;
+    } catch(ex) {
+        console.error(ex);
+        return;
+    }
+}
+
 function reduce(obj, str) {
     "use strict";
     if ( typeof str !== "string") {
@@ -33,7 +48,7 @@ function add(obj, str, val) {
     var items = str.split('.');
     var initial = _.initial(items);
     var last = _.last(items);
-    var test = initial.reduce(index, obj);
+    var test = initial.reduce(indexSet, obj);
     test[last] = val;
 }
 
