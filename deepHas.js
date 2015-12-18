@@ -6,6 +6,7 @@ var index,
     set;
 
 function index(obj, i) {
+    "use strict";
     try {
         if (obj && obj.hasOwnProperty(i)) {
             return obj[i];
@@ -18,6 +19,7 @@ function index(obj, i) {
 }
 
 function indexSet(obj, i) {
+    "use strict";
     try {
         if (obj && obj.hasOwnProperty(i)) {
             return obj[i];
@@ -62,6 +64,7 @@ function add(obj, str, val) {
 }
 
 function has(target, path) {
+    "use strict";
     var test = reduce(target, path);
     if ( typeof test !== "undefined") {
         return true;
@@ -70,10 +73,12 @@ function has(target, path) {
 }
 
 function get(target, path) {
+    "use strict";
     return reduce(target, path);
 }
 
 function set(target, path, val) {
+    "use strict";
     return add(target, path, val);
 }
 
