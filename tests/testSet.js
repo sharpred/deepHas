@@ -49,3 +49,25 @@ JSON.stringify(obj).should.equal(JSON.stringify({
     "truthy" : true,
     "falsey" : false
 }));
+
+dh.set(obj, "top.middle.right", {
+    "val" : "wibble"
+});
+
+JSON.stringify(obj).should.equal(JSON.stringify({
+    "top" : {
+        "middle" : {
+            "bottom" : {
+                "val" : "wobble"
+            },
+            "left" : {
+                "val" : "wibble"
+            },
+            "right" : {
+                "val" : "wibble"
+            }
+        }
+    },
+    "truthy" : true,
+    "falsey" : false
+}));
