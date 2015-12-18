@@ -44,6 +44,16 @@ function reduce(obj, str) {
 }
 
 function add(obj, str, val) {
+    "use strict";
+    if ( typeof str !== "string") {
+        return;
+    }
+    if ( typeof obj !== "object") {
+        return;
+    }
+    if (!val) {
+        return;
+    }
     var items = str.split('.');
     var initial = items.slice(0, items.length - 1);
     var last = items.slice(items.length - 1);
