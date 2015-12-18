@@ -8,6 +8,8 @@ var dh = require("../deepHas"),
  */
 dh.should.be.an.instanceOf(Object).and.have.property('has');
 dh.should.have.property('get');
+dh.should.have.property('set');
 dh.should.be.an.instanceOf(Object).and.not.have.property('deep');
 dh.has.should.be.an.instanceOf(Function);
 dh.get.should.be.an.instanceOf(Function);
+dh.set.should.be.an.instanceOf(Function);
