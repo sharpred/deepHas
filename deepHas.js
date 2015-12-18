@@ -11,9 +11,9 @@ function indexer(set) {
     return function(obj, i) {
         "use strict";
         try {
-            if (obj && obj.hasOwnProperty(i)) {
+            if (obj && i && obj.hasOwnProperty(i)) {
                 return obj[i];
-            } else if (set) {
+            } else if (obj && i && set) {
                 obj[i] = {};
                 return obj[i];
             }
