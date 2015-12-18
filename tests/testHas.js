@@ -41,6 +41,7 @@ test9 = dh.has("top");
 test10 = dh.has({}, "top");
 test11 = dh.has(hasObj, "truthy");
 test12 = dh.has(hasObj, "falsey");
+test13 = dh.has(hasObj, "middle");
 
 //assertions
 test1.should.be.exactly(true);
@@ -55,3 +56,4 @@ test9.should.be.exactly(false);
 test10.should.be.exactly(false);
 test11.should.be.exactly(true);
 test12.should.be.exactly(true);
+test13.should.be.exactly(false);

@@ -1,7 +1,7 @@
 {
   "name": "deephas",
-  "version": "1.0.3",
-  "description": "test for existence of nested object key and optionally return that key",
+  "version": "1.0.4",
+  "description": "get, set or test for a value in a javascript object",
   "main": "deepHas.js",
   "scripts": {
     "test": "./runTests.sh"
