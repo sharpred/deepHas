@@ -1,5 +1,4 @@
-var _ = require("underscore"),
-    index,
+var index,
     reduce,
     add,
     has,
@@ -46,8 +45,8 @@ function reduce(obj, str) {
 
 function add(obj, str, val) {
     var items = str.split('.');
-    var initial = _.initial(items);
-    var last = _.last(items);
+    var initial = items.slice(0, items.length - 1);
+    var last = items.slice(items.length - 1);
     var test = initial.reduce(indexSet, obj);
     test[last] = val;
 }

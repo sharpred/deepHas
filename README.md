@@ -15,8 +15,12 @@ or just drop deepHas.js into your project.
 
 ### dh.has(obj, 'some.nested.property')
 
-Returns true or false if 'some.nested.property' exists or not. In the above example returns true.
+Returns true or false if 'some.nested.property' exists or not.
 
 ### dh.get(obj, 'some.nested.property')
 
-Returns the value or undefined if it does not exist.  In the above example returns "your value here"
+Returns the value or undefined if it does not exist.
+
+### dh.set(obj, 'some.nested.newproperty', "your value here")
+
+Adds a new property or object.

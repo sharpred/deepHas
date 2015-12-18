@@ -126,7 +126,27 @@ JSON.stringify(obj).should.equal(JSON.stringify({
     "falsey" : false,
     "bottom" : {
         "middle" : {
-            "top" : {"val": "1"}
+            "top" : {
+                "val" : "1"
+            }
         }
     }
 }));
+var test2 = {
+    "bottom" : {
+        "middle" : {
+            "top" : ["paul", 1, {
+                "test" : "test"
+            }]
+        }
+    }
+};
+
+obj2 = {
+
+};
+dh.set(obj2, "bottom.middle.top", ["paul", 1, {
+    "test" : "test"
+}]);
+
+JSON.stringify(obj2).should.equal(JSON.stringify(test2));
