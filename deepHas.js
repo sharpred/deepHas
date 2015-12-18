@@ -23,7 +23,7 @@ function indexer(set) {
             return;
         }
     };
-};
+}
 
 indexTrue = indexer(true);
 indexFalse = indexer(false);
