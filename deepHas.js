@@ -1,19 +1,13 @@
 var indexFalse,
-    indexTrue,
-    indexer,
-    reduce,
-    add,
-    has,
-    get,
-    set;
+    indexTrue;
 
-function indexer(set) {
+function indexer(val) {
     return function (obj, i) {
         "use strict";
         try {
             if (obj && i && obj.hasOwnProperty(i)) {
                 return obj[i];
-            } else if (obj && i && set) {
+            } else if (obj && i && val) {
                 obj[i] = {};
                 return obj[i];
             }
@@ -62,7 +56,6 @@ function add(obj, str, val) {
             return;
         }
         var items = str.split('.');
-        console.log(str);
         var initial = items.slice(0, items.length - 1);
         var last = items.slice(items.length - 1);
         var test = initial.reduce(indexTrue, obj);

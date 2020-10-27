@@ -1,6 +1,6 @@
 {
   "name": "deephas",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "get, set or test for a value in a javascript object",
   "main": "deepHas.js",
   "scripts": {
