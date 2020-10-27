@@ -8,7 +8,7 @@ var indexFalse,
     set;
 
 function indexer(set) {
-    return function(obj, i) {
+    return function (obj, i) {
         "use strict";
         try {
             if (obj && i && obj.hasOwnProperty(i)) {
@@ -18,7 +18,7 @@ function indexer(set) {
                 return obj[i];
             }
             return;
-        } catch(ex) {
+        } catch (ex) {
             console.error(ex);
             return;
         }
@@ -31,15 +31,15 @@ indexFalse = indexer(false);
 function reduce(obj, str) {
     "use strict";
     try {
-        if ( typeof str !== "string") {
+        if (typeof str !== "string") {
             return;
         }
-        if ( typeof obj !== "object") {
+        if (typeof obj !== "object") {
             return;
         }
         return str.split('.').reduce(indexFalse, obj);
 
-    } catch(ex) {
+    } catch (ex) {
         console.error(ex);
         return;
     }
@@ -49,21 +49,26 @@ function reduce(obj, str) {
 function add(obj, str, val) {
     "use strict";
     try {
-        if ( typeof str !== "string") {
+        if (typeof str !== "string") {
             return;
         }
-        if ( typeof obj !== "object") {
+        if (str.indexOf('__proto__') != -1) {
+            throw "cannot modify prototype property";
+        }
+        if (typeof obj !== "object") {
             return;
         }
         if (!val) {
             return;
         }
         var items = str.split('.');
+        console.log(str);
         var initial = items.slice(0, items.length - 1);
         var last = items.slice(items.length - 1);
         var test = initial.reduce(indexTrue, obj);
         test[last] = val;
-    } catch(ex) {
+
+    } catch (ex) {
         console.error(ex);
         return;
     }
@@ -73,11 +78,11 @@ function has(target, path) {
     "use strict";
     try {
         var test = reduce(target, path);
-        if ( typeof test !== "undefined") {
+        if (typeof test !== "undefined") {
             return true;
         }
         return false;
-    } catch(ex) {
+    } catch (ex) {
         console.error(ex);
         return;
     }
@@ -87,7 +92,7 @@ function get(target, path) {
     "use strict";
     try {
         return reduce(target, path);
-    } catch(ex) {
+    } catch (ex) {
         console.error(ex);
         return;
     }
@@ -97,7 +102,7 @@ function set(target, path, val) {
     "use strict";
     try {
         return add(target, path, val);
-    } catch(ex) {
+    } catch (ex) {
         console.error(ex);
         return;
     }
