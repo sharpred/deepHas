@@ -40,14 +40,44 @@ function reduce(obj, str) {
 
 }
 
+function splitOnDot(str) {
+  var result = [];
+  var current = "";
+  var i = 0;
+
+  while (i < str.length) {
+    if (str[i] === ".") {
+      result[result.length] = current;
+      current = "";
+    } else {
+      current = current + str[i];
+    }
+    i = i + 1;
+  }
+
+  result[result.length] = current;
+  return result;
+}
+
 function add(obj, str, val) {
     "use strict";
     try {
+        var items = splitOnDot(str);
         if (typeof str !== "string") {
             return;
         }
-        if (str.indexOf('__proto__') != -1) {
+        /*if (str.indexOf('__proto__') != -1) {
             throw "cannot modify prototype property";
+        }*/
+        var i = 0;
+        while (i < items.length) {
+            var k = items[i];
+
+            if ( k === "__proto__" || k === "constructor" || k === "prototype") {
+                throw "cannot modify prototype property";
+            }
+
+            i = i + 1;
         }
         if (typeof obj !== "object") {
             return;
@@ -55,7 +85,7 @@ function add(obj, str, val) {
         if (!val) {
             return;
         }
-        var items = str.split('.');
+        //var items = str.split('.');
         var initial = items.slice(0, items.length - 1);
         var last = items.slice(items.length - 1);
         var test = initial.reduce(indexTrue, obj);
